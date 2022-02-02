@@ -1,6 +1,7 @@
 <script lang="ts">
 
   import "./assets/app.css"
+  import githubLogo from './assets/GitHub-Mark-Light-64px.png'
   import { flip } from 'svelte/animate';
   import { quintOut } from 'svelte/easing';
 
@@ -29,7 +30,7 @@
   </div>
   <div class="flex-none">
     <a class="btn btn-square btn-ghost" href="https://github.com/shibukawa/shuffle-name">
-      <img src="public/GitHub-Mark-Light-64px.png" alt="github" />
+      <img src={githubLogo} alt="github" />
     </a>
   </div>
 </header>
