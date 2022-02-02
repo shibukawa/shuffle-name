@@ -1,6 +1,8 @@
 <script lang="ts">
 
   import "./assets/app.css"
+  import { flip } from 'svelte/animate';
+  import { quintOut } from 'svelte/easing';
 
   let choices : string[] = [];
 
@@ -24,7 +26,12 @@
     <span class="text-lg font-bold">
       勉強会発表順決定
     </span>
-  </div> 
+  </div>
+  <div class="flex-none">
+    <a class="btn btn-square btn-ghost" href="https://github.com/shibukawa/shuffle-name">
+      <img src="public/GitHub-Mark-Light-64px.png" alt="github" />
+    </a>
+  </div>
 </header>
 
 <main class="flex flex-col w-full grow lg:flex-row items-stretch">
@@ -37,8 +44,10 @@
     <h2 class="grow-0 font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">シャッフル結果</h2>
     <div class="grow">
       <ul>
-        {#each choices as choice, i}
-          <li class="rounded-lg p-2 m-2 border-emerald-400 bg-emerald-200 text-left">{i+1}: {choice}</li>
+        {#each choices as choice, i (choice)}
+          <li class="rounded-lg p-2 m-2 border-emerald-400 bg-emerald-200 text-left"
+            animate:flip="{{delay: 250, duration: 250, easing: quintOut}}"
+          >{i+1}: {choice}</li>
         {/each}
       </ul>
       </div>
